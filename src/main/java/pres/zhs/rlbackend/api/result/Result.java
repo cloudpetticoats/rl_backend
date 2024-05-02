@@ -6,19 +6,19 @@ package pres.zhs.rlbackend.api.result;
  */
 public class Result {
 
-    public static R success(Object object) {
-        return R.builder()
+    public static Re success(Object object) {
+        return Re.builder()
                 .code(REnum.SUCCESS.getCode())
                 .msg(REnum.SUCCESS.getMsg())
                 .data(object).build();
     }
 
-    public static R success(){
+    public static Re success(){
         return success(null);
     }
 
-    public static R Err(Integer code,String msg){
-        return R.builder()
+    public static Re Err(Integer code, String msg){
+        return Re.builder()
                 .code(REnum.UNKNOWN_ERROR.getCode())
                 .msg(REnum.UNKNOWN_ERROR.getMsg())
                 .data(null).build();

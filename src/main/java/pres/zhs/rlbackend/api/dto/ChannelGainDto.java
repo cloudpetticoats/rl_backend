@@ -22,8 +22,8 @@ public class ChannelGainDto implements Serializable {
     private String channelGain;
 
     /**
-     * 该信道增益的索引
+     * 所能达到的价值最大值
      */
-    private Integer idx;
+    private String actuallyVMax;
 
 }
