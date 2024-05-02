@@ -5,17 +5,17 @@ import pres.zhs.rlbackend.api.dto.ChannelDataObj;
 import java.io.*;
 import java.util.*;
 
-public class ReadMatFile {
-    public static List<ChannelDataObj> readMatFile() {
+public class ReadFile {
+    public static List<ChannelDataObj> readFile() {
 
         List<List<Double>> channelData = readChannelData("D:\\a_paper\\rlBackend\\src\\main\\resources\\templates\\channel_data.txt");
         List<Double> rateData = readRateData("D:\\a_paper\\rlBackend\\src\\main\\resources\\templates\\rate_data.txt");
 
-        Random random = new Random();
-        int x = random.nextInt(28000);
+//        Random random = new Random();
+//        int x = random.nextInt(28000);
 
-        List<ChannelDataObj> data = new ArrayList<>(10);
-        for (int i = x; i < x + 10; i++) {
+        List<ChannelDataObj> data = new ArrayList<>(30000);
+        for (int i = 0; i < 30000; i++) {
             ChannelDataObj build = ChannelDataObj.builder()
                     .channel(channelData.get(i).toString())
                     .actuallyVMax(rateData.get(i).toString())
