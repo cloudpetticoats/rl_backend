@@ -7,4 +7,6 @@ import pres.zhs.rlbackend.api.result.Re;
 public interface RlGetStrategy {
 
     Re<StrategyDto> getStrategy(ChannelGainDto strategyDto);
+
+    Re<String> startSimulate(String name);
 }

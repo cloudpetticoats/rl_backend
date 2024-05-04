@@ -27,4 +27,12 @@ public class RlGetStrategyImpl implements RlGetStrategy {
 
         return Result.success(strategyDto);
     }
+
+    @Override
+    public Re<String> startSimulate(String name) {
+
+        String res = dRlGetStrategyService.startSimulate(name);
+
+        return Result.success(res);
+    }
 }
