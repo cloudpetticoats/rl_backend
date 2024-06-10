@@ -1,10 +1,9 @@
 package pres.zhs.rlbackend.app.controller;
 
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pres.zhs.rlbackend.api.dto.DataDto;
+import pres.zhs.rlbackend.api.dto.PostDto;
 import pres.zhs.rlbackend.api.result.Re;
 import pres.zhs.rlbackend.api.service.GetData;
 
@@ -16,7 +15,7 @@ public class DataController {
     private GetData getData;
 
     @PostMapping("/getData")
-    public Re<DataDto> getData() {
-        return getData.getData();
+    public Re<DataDto> getData(@RequestBody PostDto page) {
+        return getData.getData(page.getPage());
     }
 }

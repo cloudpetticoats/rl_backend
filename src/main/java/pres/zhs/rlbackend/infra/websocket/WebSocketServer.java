@@ -76,7 +76,11 @@ public class WebSocketServer {
     public void AppointSending(String name, String message) throws Exception {
         try {
             log.info(message);
-            webSocketSet.get(name).session.getBasicRemote().sendText(message);
+            if (webSocketSet == null || webSocketSet.isEmpty() || !webSocketSet.containsKey(name)) {
+                throw new Exception("无任何客户端连接,已终止线程池");
+            } else {
+                webSocketSet.get(name).session.getBasicRemote().sendText(message);
+            }
         }catch (Exception e){
             e.printStackTrace();
             throw new Exception(e);

@@ -31,7 +31,7 @@ class RlBackendApplicationTests {
 
     @Test
     void testReadFile() {
-        DataDto data = getDataGateway.getData();
+        DataDto data = getDataGateway.getData(1);
     }
 
 }

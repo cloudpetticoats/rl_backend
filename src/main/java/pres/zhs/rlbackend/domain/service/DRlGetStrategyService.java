@@ -35,6 +35,9 @@ public class DRlGetStrategyService {
     @Resource
     private WebSocketServer webSocketServer;
 
+    @Resource
+    private List<ChannelDataObj> allFileData;
+
 //    private static final ScheduledExecutorService service = new ScheduledThreadPoolExecutor(1);
     private static final int loop = 30000;
     private static final int timeFrame = 2000;
@@ -45,10 +48,10 @@ public class DRlGetStrategyService {
 
     public String startSimulate(String name) {
 
-        List<ChannelDataObj> allData = getDataGateway.getAllData();
+//        List<ChannelDataObj> allData = getDataGateway.getAllData();
 
         List<ChannelGainDto> data = new ArrayList<>(30000);
-        for (ChannelDataObj item : allData) {
+        for (ChannelDataObj item : allFileData) {
             ChannelGainDto build = ChannelGainDto.builder()
                     .channelGain(item.getChannel())
                     .actuallyVMax(item.getActuallyVMax())

@@ -15,9 +15,9 @@ public class GetDataImpl implements GetData {
     private GetDataGateway getDataGateway;
 
     @Override
-    public Re<DataDto> getData() {
+    public Re<DataDto> getData(Integer page) {
 
-        DataDto data = getDataGateway.getData();
+        DataDto data = getDataGateway.getData(page);
 
         return Result.success(data);
     }

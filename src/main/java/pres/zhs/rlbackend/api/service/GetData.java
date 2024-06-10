@@ -5,5 +5,5 @@ import pres.zhs.rlbackend.api.result.Re;
 
 public interface GetData {
 
-    Re<DataDto> getData();
+    Re<DataDto> getData(Integer page);
 }

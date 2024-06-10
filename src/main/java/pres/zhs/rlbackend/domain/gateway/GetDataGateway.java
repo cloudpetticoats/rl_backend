@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface GetDataGateway {
 
-    DataDto getData();
+    DataDto getData(Integer page);
 
     List<ChannelDataObj> getAllData();
 }

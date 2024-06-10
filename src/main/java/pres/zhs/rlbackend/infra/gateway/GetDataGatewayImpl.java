@@ -1,5 +1,6 @@
 package pres.zhs.rlbackend.infra.gateway;
 
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 import pres.zhs.rlbackend.api.dto.ChannelDataObj;
 import pres.zhs.rlbackend.api.dto.DataDto;
@@ -13,17 +14,14 @@ import java.util.Random;
 @Component
 public class GetDataGatewayImpl implements GetDataGateway {
 
+    @Resource
+    private List<ChannelDataObj> allFileData;
+
     @Override
-    public DataDto getData() {
-
-        List<ChannelDataObj> dataObjs = ReadFile.readFile();
-
-        Random random = new Random();
-        int x = random.nextInt(29000);
-
+    public DataDto getData(Integer page) {
         List<ChannelDataObj> fiveData = new ArrayList<>();
-        for (int i = x; i < x + 5; i++) {
-            fiveData.add(dataObjs.get(i));
+        for (int i = page * 5 - 5; i < page * 5; i++) {
+            fiveData.add(allFileData.get(i));
         }
 
         return DataDto.builder().data(fiveData).build();
